@@ -5,7 +5,8 @@ namespace ProductProject.Application.Interfaces
     public interface IProdutoInterface
     {
         Task<VisualizarProdutoDto> NovoProdutoAsync(CriarProdutoDto dto);
-        Task<IEnumerable<VisualizarProdutoDto>> ListarProdutos();
-        Task<VisualizarProdutoDto?> ObterProdutoPorId(Guid id);
+        Task<IEnumerable<VisualizarProdutoDto>> ListarProdutosAsync();
+        Task<VisualizarProdutoDto?> ObterProdutoPorIdAsync(Guid id);
+        Task<VisualizarProdutoDto?> AtualizarProdutoAsync(Guid id, AtualizarProdutoDto dto);
     }
 }

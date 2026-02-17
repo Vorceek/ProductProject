@@ -6,13 +6,28 @@ using ProductProject.Infrastructure.Data;
 
 namespace ProductProject.Application.Services
 {
-    public class UsuarioService : IUsuarioInterface
+    public class UsuarioService(AppDbContext context) : IUsuarioInterface
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _context = context;
 
-        public UsuarioService(AppDbContext context)
+        public async Task<VisualizarUsuarioDto?> AtualizarUsuarioAsync(Guid id, AtualizarUsuarioDto dto)
         {
-            _context = context;
+            var usuario = await _context.Usuarios
+                .FindAsync(id);
+
+            if (usuario == null) return null;
+
+            usuario.Nome = dto.Nome;
+            usuario.Email = dto.Email;
+
+            await _context.SaveChangesAsync();
+
+            return new VisualizarUsuarioDto
+            {
+                Id = id,
+                Nome = dto.Nome,
+                Email = dto.Email
+            };
         }
 
         public async Task<IEnumerable<VisualizarUsuarioDto>> ListarUsuarios()
@@ -20,6 +35,7 @@ namespace ProductProject.Application.Services
             return await _context.Usuarios
                 .Select(u => new VisualizarUsuarioDto
                 {
+                    Id = u.Id,
                     Nome = u.Nome,
                     Email = u.Email
                 })

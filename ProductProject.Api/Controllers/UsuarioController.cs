@@ -21,7 +21,7 @@ namespace ProductProject.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> ListarPorId(Guid id)
         {
-            if (id == Guid.Empty) return BadRequest("Id inválido");
+            if (id == Guid.Empty) return BadRequest("Id inválido"); 
             var usuario = await _usuarioService.ObterUsuarioPorId(id);
             if (usuario == null) return NotFound();
             return Ok(usuario);
@@ -32,6 +32,15 @@ namespace ProductProject.Api.Controllers
         {
             var usuario = await _usuarioService.NovoUsuarioAsync(dto);
             return CreatedAtAction(nameof(ListarPorId), new { id = usuario.Id }, usuario);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AtualizarUsuario(Guid id, [FromBody] AtualizarUsuarioDto dto)
+        {
+            if (id == Guid.Empty) return BadRequest("Id inválido"); 
+            var usuario = await _usuarioService.AtualizarUsuarioAsync(id, dto);
+            if (usuario == null) return NotFound();
+            return NoContent();
         }
     }
 }
