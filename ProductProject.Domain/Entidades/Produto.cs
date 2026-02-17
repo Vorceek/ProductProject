@@ -7,7 +7,7 @@
         public required string Descricao { get; set; }
         public int Quantidade { get; set; }
 
-        public DateTime CriadoEm { get; set; } = DateTime.Now;
+        public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
         public required Guid CriadoPorId { get; set; }
         public Usuario CriadoPor { get; set; } = null!;
 
