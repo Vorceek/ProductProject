@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProductProject.Application.Dtos.ProdutoDtos;
-using ProductProject.Domain.Interfaces;
+using ProductProject.Application.Interfaces;
 using ProductProject.Entities;
 using ProductProject.Infrastructure.Data;
 
@@ -45,6 +45,13 @@ namespace ProductProject.Application.Services
 
         public async Task<VisualizarProdutoDto> NovoProdutoAsync(CriarProdutoDto dto)
         {
+
+            var usuarioExiste = await _context.Usuarios
+                .AnyAsync(u => u.Id == dto.CriadoPorId);
+
+            if (!usuarioExiste)
+                throw new Exception("Usuário não encontrado.");
+
             var produto = new Produto 
             { 
                 Nome = dto.Nome,

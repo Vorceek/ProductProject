@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductProject.Application.Dtos.ProdutoDtos;
 using ProductProject.Application.Interfaces;
-using ProductProject.Application.Services;
-using ProductProject.Domain.Interfaces;
 
 namespace ProductProject.Api.Controllers
 {

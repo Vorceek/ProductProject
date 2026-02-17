@@ -1,6 +1,6 @@
 ﻿using ProductProject.Application.Dtos.ProdutoDtos;
 
-namespace ProductProject.Domain.Interfaces
+namespace ProductProject.Application.Interfaces
 {
     public interface IProdutoInterface
     {

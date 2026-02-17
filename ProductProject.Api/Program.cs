@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProductProject.Application.Interfaces;
 using ProductProject.Application.Services;
-using ProductProject.Domain.Interfaces;
 using ProductProject.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
