@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProductProject.Application.Dtos
 {
-    internal class Class1
+    internal class CriarProdutoDto
     {
     }
 }

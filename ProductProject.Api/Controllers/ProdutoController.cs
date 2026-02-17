@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ProductProject.Api.Controllers
 {
-    internal class Class1
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProdutoController : ControllerBase
     {
     }
 }
