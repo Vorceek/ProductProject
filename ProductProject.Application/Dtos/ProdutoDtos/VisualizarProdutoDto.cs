@@ -1,9 +1,6 @@
 ﻿using ProductProject.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ProductProject.Application.Dtos
+namespace ProductProject.Application.Dtos.ProdutoDtos
 {
     public class VisualizarProdutoDto
     {

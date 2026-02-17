@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductProject.Application.Dtos;
+using ProductProject.Application.Dtos.ProdutoDtos;
 using ProductProject.Domain.Interfaces;
 using ProductProject.Entities;
 using ProductProject.Infrastructure.Data;
@@ -32,7 +32,6 @@ namespace ProductProject.Application.Services
         public async Task<VisualizarProdutoDto?> ObterProdutoPorId(Guid id)
         {
             return await _context.Produtos
-                .Where(p => p.Id == id)
                 .Select(p => new VisualizarProdutoDto
                 {
                     Id = p.Id,
@@ -41,7 +40,7 @@ namespace ProductProject.Application.Services
                     Quantidade = p.Quantidade,
                     CriadoPorId = p.CriadoPorId,
                 })
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<VisualizarProdutoDto> NovoProdutoAsync(CriarProdutoDto dto)

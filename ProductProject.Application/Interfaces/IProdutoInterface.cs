@@ -1,8 +1,4 @@
-﻿using ProductProject.Application.Dtos;
-using ProductProject.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ProductProject.Application.Dtos.ProdutoDtos;
 
 namespace ProductProject.Domain.Interfaces
 {

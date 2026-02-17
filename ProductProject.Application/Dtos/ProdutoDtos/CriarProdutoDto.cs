@@ -1,6 +1,4 @@
-﻿using ProductProject.Entities;
-
-namespace ProductProject.Application.Dtos
+﻿namespace ProductProject.Application.Dtos.ProdutoDtos
 {
     public class CriarProdutoDto
     {

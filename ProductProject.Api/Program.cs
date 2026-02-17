@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductProject.Application.Interfaces;
 using ProductProject.Application.Services;
 using ProductProject.Domain.Interfaces;
 using ProductProject.Infrastructure.Data;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 builder.Services.AddScoped<IProdutoInterface, ProdutoService>();
+builder.Services.AddScoped<IUsuarioInterface, UsuarioService>();
 
 var app = builder.Build();
 
