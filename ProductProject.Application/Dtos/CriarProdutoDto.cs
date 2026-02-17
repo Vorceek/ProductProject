@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ProductProject.Entities;
 
 namespace ProductProject.Application.Dtos
 {
-    internal class CriarProdutoDto
+    public class CriarProdutoDto
     {
+        public required string Nome { get; set; }
+        public required string Descricao { get; set; }
+        public int Quantidade { get; set; }
+        public Guid CriadoPorId { get; set; }
     }
 }

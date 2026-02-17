@@ -1,6 +1,11 @@
-﻿namespace ProductProject.Entities
+﻿using ProductProject.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProductProject.Application.Dtos
 {
-    public class Produto
+    public class VisualizarProdutoDto
     {
         public Guid Id { get; set; }
         public required string Nome { get; set; }

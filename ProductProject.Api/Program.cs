@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductProject.Application.Services;
+using ProductProject.Domain.Interfaces;
 using ProductProject.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         x => x.MigrationsAssembly("ProductProject.Infrastructure")
     )
 );
+
+builder.Services.AddScoped<IProdutoInterface, ProdutoService>();
 
 var app = builder.Build();
 
