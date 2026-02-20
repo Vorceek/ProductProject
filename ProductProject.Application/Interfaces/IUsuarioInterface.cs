@@ -8,5 +8,6 @@ namespace ProductProject.Application.Interfaces
         Task<IEnumerable<VisualizarUsuarioDto>> ListarUsuarios();
         Task<VisualizarUsuarioDto?> ObterUsuarioPorId(Guid id);
         Task<VisualizarUsuarioDto?> AtualizarUsuarioAsync(Guid id, AtualizarUsuarioDto dto);
+        Task<bool> DeletarUsuarioAsync(Guid id);
     }
 }

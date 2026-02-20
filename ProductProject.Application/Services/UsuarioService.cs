@@ -72,5 +72,17 @@ namespace ProductProject.Application.Services
                 })
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
+
+        public async Task<bool> DeletarUsuarioAsync(Guid id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+
+            if (usuario == null) return false;
+
+            _context.Usuarios.Remove(usuario);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
