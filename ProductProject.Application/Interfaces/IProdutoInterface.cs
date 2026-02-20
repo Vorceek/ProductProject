@@ -8,5 +8,6 @@ namespace ProductProject.Application.Interfaces
         Task<IEnumerable<VisualizarProdutoDto>> ListarProdutosAsync();
         Task<VisualizarProdutoDto?> ObterProdutoPorIdAsync(Guid id);
         Task<VisualizarProdutoDto?> AtualizarProdutoAsync(Guid id, AtualizarProdutoDto dto);
+        Task<bool> DeletarProdutoAsync(Guid id);
     }
 }

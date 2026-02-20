@@ -95,5 +95,17 @@ namespace ProductProject.Application.Services
                 ModificadoEm = produto.ModificadoEm
             };
         }
+
+        public async Task<bool> DeletarProdutoAsync(Guid id)
+        {
+            var produto = await _context.Produtos.FindAsync(id);
+
+            if (produto == null) return false;
+
+            _context.Produtos.Remove(produto);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
