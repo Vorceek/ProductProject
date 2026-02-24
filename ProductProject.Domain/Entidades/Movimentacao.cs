@@ -13,7 +13,7 @@
         public Guid UsuarioId { get; set; }
         public Tipos Tipo { get; set; }
         public int Quantidade { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime Data { get; set; } = DateTime.UtcNow;
         public string Observacao { get; set; } = string.Empty;
     }
 }
